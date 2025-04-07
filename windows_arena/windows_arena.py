@@ -63,7 +63,6 @@ def main():
     To use batch mode that follows a plan file or folder, run the following command:
     python -m ufo -t task_name -m batch_normal -p path_to_plan_file_or_folder
     """
-
     # Set config if agent setting exist.
     if parsed_args.agent_settings is not None and parsed_args.agent_settings != "":
         try:
@@ -121,6 +120,8 @@ def set_config(agent_settings_json: dict = {}):
         configs["APP_AGENT"]["API_MODEL"] = "gpt-4o"
         configs["BACKUP_AGENT"]["API_MODEL"] = "gpt-4o"
         configs["MAX_ROUND"] = 1
+        configs['SAFE_GUARD'] = False
+        configs['SAVE_EXPERIENCE'] = "always_not"
 
 if __name__ == "__main__":
     main()
